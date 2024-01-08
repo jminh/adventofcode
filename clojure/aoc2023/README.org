@@ -8,3 +8,24 @@ Use [[https://clojure.org/][clojure]] or [[https://github.com/babashka/babashka]
   #+begin_example
   bb src/day1.clj
   #+end_example
+
+* nix develop
+
+  #+begin_example
+$ nix develop
+$ clj --version
+Clojure CLI version 1.11.1.1435
+
+$ clj
+Clojure 1.10.1
+user=> quit
+  #+end_example  
+
+Due to deps.edn, clj shell is Clojure 1.10.1 .
+
+#+begin_example
+$ cat deps.edn
+{:deps {org.clojure/clojure {:mvn/version "1.10.1"}}
+   :paths ["src" "resources"]
+    :aliases {:test {:extra-paths ["test"]}}} ;; <- test alias
+#+end_example
